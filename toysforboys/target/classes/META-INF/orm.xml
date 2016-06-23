@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity-mappings xmlns="http://xmlns.jcp.org/xml/ns/persistence/orm"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence/orm
+http://xmlns.jcp.org/xml/ns/persistence/orm_2_1.xsd" version="2.1">
+	 <named-query name='Countrie.findAll'> 
+		<query>
+			select o from Countrie o
+		</query>
+	</named-query>
+	
+	<named-query name='Order.findAll'>
+		<query>
+			select o from Order o where (o.status NOT LIKE 'SHIPPED') AND (o.status NOT LIKE 'CANCELLED')
+			</query>
+		
+	</named-query> 
+	<named-query name='Customer.findAll'>
+		<query>
+			select c from Customer c
+		</query>
+		
+	</named-query> 
+	<named-query name='OrderDetails.findByOrderID'>
+		<query>
+			select o from OrderDetails o
+		</query>
+	</named-query>
+	<named-query name='Order.adaptToShipping'>
+		<query>
+			update Order o set o.shippeddate= :shippeddate where o.id= :idveranderd
+		</query>
+	</named-query>
+	<named-query name='Order.adaptToShippingP'>
+		<query>
+			update Order o set o.shippeddate='2016-06-20' where o.id= :idveranderd
+		</query>
+	</named-query>
+</entity-mappings>

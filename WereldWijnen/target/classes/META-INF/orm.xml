@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity-mappings xmlns="http://xmlns.jcp.org/xml/ns/persistence/orm"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence/orm
+http://xmlns.jcp.org/xml/ns/persistence/orm_2_1.xsd" version="2.1">
+
+<named-query name='Land.findAll'> <!-- voor later in de cursus -->
+<query>
+select l from Land l
+</query>
+</named-query>
+<named-query name='Soort.findAll'> <!-- voor later in de cursus -->
+<query>
+select s from Soort s where s.id = :landid
+</query>
+</named-query>
+<named-query name='Wijn.setInBestellingBij'>
+	<query>
+		update Wijn w  set w.inBestelling=w.inBestelling+ :hoeveelheid where w.id= :idwijn
+	</query>
+</named-query>
+</entity-mappings>
